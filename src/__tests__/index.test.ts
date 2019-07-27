@@ -1,11 +1,18 @@
-import { greet } from '..'
+import { Server } from 'net'
+import { startApp } from '..'
 
-describe('greet', () => {
-  it('should greet', () => {
-    const expected = 'hello'
+describe('startApp', () => {
+  let app: Server
 
-    const results = greet()
+  afterEach(() => {
+    // Important!!! Close connection
+    // Otherwise there will be port
+    // conflict errors
+    app.close()
+  })
 
-    expect(results).toEqual(expected)
+  it('should start app', () => {
+    app = startApp()
+    expect(app.listening).toBe(true)
   })
 })
