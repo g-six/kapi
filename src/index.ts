@@ -1,4 +1,4 @@
 const message = 'testing'
-const greet = (): string => message
+const greet = () => message
 
 console.log(greet())

@@ -22,6 +22,7 @@
     "typescript": "^3.5.3"
   },
   "scripts": {
+    "commit": "npx git-cz",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --fix",
     "test": "npx ts-jest"
   },
@@ -41,7 +42,7 @@
     }
   },
   "lint-staged": {
-    "*.js": [
+    "*.(j|t)s": [
       "eslint --fix",
       "git add"
     ]
