@@ -17,12 +17,14 @@
     "jest": "^24.8.0",
     "lint-staged": "^9.2.1",
     "prettier": "^1.18.2",
+    "rimraf": "^2.6.3",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
   },
   "scripts": {
     "commit": "npx git-cz",
+    "compile": "rimraf ./lib && tsc",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --fix",
     "test": "npx ts-jest"
   },
