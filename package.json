@@ -1,0 +1,49 @@
+{
+  "name": "djiron",
+  "version": "0.2.0",
+  "description": "Typesript DJIron",
+  "main": "index.ts",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^24.0.15",
+    "@types/node": "^12.6.8",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "eslint": "^6.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "git-cz": "^3.2.1",
+    "husky": "^3.0.1",
+    "jest": "^24.8.0",
+    "lint-staged": "^9.2.1",
+    "prettier": "^1.18.2",
+    "ts-jest": "^24.0.2",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "scripts": {
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --fix",
+    "test": "npx ts-jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/g-six/djiron.git"
+  },
+  "author": "g-six",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/g-six/djiron/issues"
+  },
+  "homepage": "https://github.com/g-six/djiron#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  }
+}
