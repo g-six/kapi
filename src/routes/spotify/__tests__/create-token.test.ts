@@ -1,5 +1,5 @@
-import { createToken } from '../spotify'
-import { ISpotifyResponse } from '../spotify.types'
+import { createToken } from '../create-token'
+import { ISpotifyResponse } from '../types'
 
 jest.genMockFromModule('axios')
 const axios = require('axios')

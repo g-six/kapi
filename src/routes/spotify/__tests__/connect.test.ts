@@ -1,5 +1,5 @@
-import { generateSpotifyAuthLink } from '../auth'
-import { ApiEntrypoints as SpotifyEntrypoints } from '../spotify.types'
+import { generateSpotifyAuthLink } from '../connect'
+import { ApiEntrypoints as SpotifyEntrypoints } from '../types'
 
 describe('auth routes', () => {
   describe('generateSpotifyAuthLink', () => {
