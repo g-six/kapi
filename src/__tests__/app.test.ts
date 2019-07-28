@@ -1,5 +1,5 @@
 import { Server } from 'net'
-import { startApp } from '..'
+import { startApp } from '../app'
 
 describe('startApp', () => {
   let app: Server
