@@ -5,8 +5,13 @@ services:
     command: ['./node_modules/.bin/nodemon']
     environment:
       PORT: 8080
+      SPOTIFY_CLIENT_ID: $SPOTIFY_CLIENT_ID,
+      SPOTIFY_CLIENT_SECRET: $SPOTIFY_CLIENT_SECRET,
+      SPOTIFY_REDIRECT_URI: $SPOTIFY_REDIRECT_URI,
     ports:
       - '8080:8080'
+    restart: unless-stopped
     volumes:
       - ./src:/app/src
       - ./nodemon.json:/app/nodemon.json
+      - ./.git:/app/.git:ro

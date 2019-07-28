@@ -49,7 +49,7 @@
     "commit": "npx git-cz",
     "compile": "rimraf ./lib && tsc",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --fix",
-    "test": "jest"
+    "test": "PORT=9898 jest"
   },
   "repository": {
     "type": "git",
