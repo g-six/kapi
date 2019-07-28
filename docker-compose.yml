@@ -3,11 +3,16 @@ services:
   api:
     build: .
     command: ['./node_modules/.bin/nodemon']
+    depends_on:
+      - redis
     environment:
+      NODE_ENV: production
       PORT: 8080
-      SPOTIFY_CLIENT_ID: $SPOTIFY_CLIENT_ID,
-      SPOTIFY_CLIENT_SECRET: $SPOTIFY_CLIENT_SECRET,
-      SPOTIFY_REDIRECT_URI: $SPOTIFY_REDIRECT_URI,
+      SPOTIFY_CLIENT_ID: $SPOTIFY_CLIENT_ID
+      SPOTIFY_CLIENT_SECRET: $SPOTIFY_CLIENT_SECRET
+      SPOTIFY_REDIRECT_URI: $SPOTIFY_REDIRECT_URI
+      VIRTUAL_HOST: djiron.app
+      VIRTUAL_PORT: 8080
     ports:
       - '8080:8080'
     restart: unless-stopped
@@ -15,3 +20,5 @@ services:
       - ./src:/app/src
       - ./nodemon.json:/app/nodemon.json
       - ./.git:/app/.git:ro
+  redis:
+    image: 'redis:alpine'

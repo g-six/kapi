@@ -1,3 +1,9 @@
+import auth from './auth'
 import general from './general'
+import spotify from './spotify'
 
-export default general
+export {
+  auth,
+  general,
+  spotify,
+}
