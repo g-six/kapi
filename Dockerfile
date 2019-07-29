@@ -11,6 +11,7 @@ COPY --from=installer /installs/node_modules ./node_modules
 COPY ./src ./src
 COPY package* ./
 COPY jest.config.js .
+COPY tsconfig.json .
 COPY .eslintrc.yaml .
 COPY .prettierrc.js .
 RUN npm test
