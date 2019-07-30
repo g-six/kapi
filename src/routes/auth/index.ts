@@ -5,9 +5,12 @@ import { withTime } from 'utils/logger'
 
 const routes = new Router()
 
-routes.get('/auth/spotify/callback', async (ctx: BaseContext) => {
-  withTime('/auth/spotify/callback')
-  return await spotifyCallback(ctx)
-})
+routes.get(
+  '/auth/spotify/callback',
+  async (ctx: BaseContext): Promise<void> => {
+    withTime('/auth/spotify/callback')
+    await spotifyCallback(ctx)
+  },
+)
 
 export default routes

@@ -21,6 +21,6 @@ export const generateSpotifyAuthLink = (): string => {
     'response_type=code',
     `redirect_uri=${encodeURIComponent(spotify.redirect_uri)}`,
     `scope=${scopes.join('+')}`,
-  ];
+  ]
   return [SpotifyApi.AUTHORIZE, params.join('&')].join('?')
 }

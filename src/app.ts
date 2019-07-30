@@ -3,18 +3,16 @@ import Koa = require('koa')
 import bodyParser = require('koa-bodyparser')
 import { Server } from 'net'
 import { auth, general, spotify } from './routes'
-
-const locales = require('koa-locales')
+import { readFileSync } from 'fs'
 
 const app = new Koa()
 
-const locale_config = {
-  defaultLocale: 'en',
-  dir: '../locales',
-  locales: ['en', 'zn-CN'],
-};
+const loadLanguageFiles = async (): Promise<void> => {
+  const en_stream = await readFileSync('../locales/en.json').toString()
+  const en = JSON.parse(en_stream)
 
-locales(app, locale_config)
+  console.log(en)
+}
 
 app.use(
   Cors({
@@ -30,6 +28,7 @@ app.use(
 )
 
 const startApp = (): Server => {
+  loadLanguageFiles()
   app.use(auth.routes()).use(auth.allowedMethods())
   app.use(general.routes()).use(general.allowedMethods())
   app.use(spotify.routes()).use(spotify.allowedMethods())

@@ -1,11 +1,16 @@
 import { healthCheck } from '../routes/general'
+import { BaseContext } from 'koa'
 
-const ctx: any = {}
+interface GenericContext {
+  [key: string]: string
+}
 
-describe('/status', () => {
-  it('should return status string', async () => {
+const ctx: GenericContext | BaseContext = {}
+
+describe('/status', (): void => {
+  it('should return status string', async (): Promise<void> => {
     const expected = `Life's a peach, eat more apples!`
-    await healthCheck(ctx)
+    await healthCheck(ctx as BaseContext)
     expect(ctx.body).toEqual(expected)
   })
 })

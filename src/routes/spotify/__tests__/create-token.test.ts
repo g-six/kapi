@@ -1,9 +1,11 @@
 import { createToken } from '../create-token'
 import { ISpotifyResponse } from '../types'
 
-jest.genMockFromModule('axios')
-const axios = require('axios')
-axios.post = jest.fn((uri: string, qry: string) => {
+interface MockedAxios {
+  post: (uri: string, qry: string) => {}
+}
+const axios: MockedAxios = jest.genMockFromModule('axios')
+axios.post = jest.fn((uri: string, qry: string): {} => {
   if (!uri) throw 'no uri'
 
   if (qry.substr(5, 4) === 'test') {
@@ -14,24 +16,24 @@ axios.post = jest.fn((uri: string, qry: string) => {
     data: {
       uri,
       qry,
-    }
+    },
   }
 })
 
-describe('/spotify', () => {
-  describe('POST /authorize', () => {
+describe('/spotify', (): void => {
+  describe('POST /authorize', (): void => {
     it('should return error message on fail', createTokenErrorTest)
 
     it('should return json on success', createTokenSuccessTest)
   })
 })
 
-async function createTokenErrorTest() {
+async function createTokenErrorTest(): Promise<void> {
   const results: ISpotifyResponse = await createToken('test')
   expect(results.errors).toBeDefined()
 }
 
-async function createTokenSuccessTest() {
+async function createTokenSuccessTest(): Promise<void> {
   const results: ISpotifyResponse = await createToken('valid-code')
   expect(results.data).toBeDefined()
 }

@@ -9,7 +9,6 @@
     "join": "^3.0.0",
     "koa": "^2.7.0",
     "koa-bodyparser": "^4.2.1",
-    "koa-locales": "^1.12.0",
     "koa-router": "^7.4.0",
     "massive": "^5.11.2",
     "redis": "^2.8.0"

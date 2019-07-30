@@ -8,7 +8,9 @@ RUN npm install
 FROM node:10 as tester
 WORKDIR /app
 COPY --from=installer /installs/node_modules ./node_modules
+COPY ./locales ./locales
 COPY ./src ./src
+COPY ./static ./static
 COPY package* ./
 COPY jest.config.js .
 COPY tsconfig.json .
@@ -20,7 +22,9 @@ RUN npm test
 FROM node:10 as builder
 WORKDIR /app
 COPY --from=installer /installs/node_modules ./node_modules
+COPY ./locales ./locales
 COPY ./src ./src
+COPY ./static ./static
 COPY .eslintrc.yaml .
 COPY .prettierrc.js .
 COPY jest.config.js .

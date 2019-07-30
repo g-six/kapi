@@ -3,19 +3,19 @@ export enum ContentTypes {
   JSON = 'application/json',
 }
 
-export interface IContext {
+export interface Context {
   body: {
     data: object
   }
 }
 
-export interface IResponse {
+export interface Response {
   body: {
     data: {}
   }
 }
 
-export interface IPlainTextResponse {
+export interface PlainTextResponse {
   body: string
   res: {
     setHeader: (key: string, value: string) => void
