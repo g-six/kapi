@@ -16,7 +16,7 @@ export const getData = async (key: string): Promise<string> => {
   return await asyncRedisGet(key)
 }
 
-export const storeData = async (data: IKeyStore): Promise<void> => {
+export const storeData = async (data: KeyStore): Promise<void> => {
   const client = await createClient({
     host: redis.host,
   })

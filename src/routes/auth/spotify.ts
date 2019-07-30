@@ -1,6 +1,6 @@
 import { BaseContext } from 'koa'
 import { createToken } from '../spotify/create-token'
-import { storeData, IKeyStore } from 'utils/redis-client'
+import { storeData, KeyStore } from 'utils/redis-client'
 
 export const spotifyCallback = async (ctx: BaseContext): Promise<void> => {
   try {
@@ -8,7 +8,7 @@ export const spotifyCallback = async (ctx: BaseContext): Promise<void> => {
 
     if (!data) throw new Error('No data received from Spotify API on attempt to create token')
 
-    await storeData(data as IKeyStore)
+    await storeData(data as KeyStore)
 
     ctx.body = {
       data,

@@ -1,5 +1,5 @@
 import { createToken } from '../create-token'
-import { ISpotifyResponse } from '../types'
+import { SpotifyResponse } from '../types'
 
 interface MockedAxios {
   post: (uri: string, qry: string) => {}
@@ -29,11 +29,11 @@ describe('/spotify', (): void => {
 })
 
 async function createTokenErrorTest(): Promise<void> {
-  const results: ISpotifyResponse = await createToken('test')
+  const results: SpotifyResponse = await createToken('test')
   expect(results.errors).toBeDefined()
 }
 
 async function createTokenSuccessTest(): Promise<void> {
-  const results: ISpotifyResponse = await createToken('valid-code')
+  const results: SpotifyResponse = await createToken('valid-code')
   expect(results.data).toBeDefined()
 }
