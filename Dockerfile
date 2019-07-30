@@ -8,6 +8,7 @@ RUN npm install
 FROM node:10 as tester
 WORKDIR /app
 COPY --from=installer /installs/node_modules ./node_modules
+COPY ./__mocks__ ./__mocks__
 COPY ./locales ./locales
 COPY ./src ./src
 COPY ./static ./static
