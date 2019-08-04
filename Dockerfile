@@ -23,6 +23,7 @@ RUN npm test
 FROM node:10 as builder
 WORKDIR /app
 COPY --from=installer /installs/node_modules ./node_modules
+COPY --from=tester /app/__mocks__ ./__mocks__
 COPY ./locales ./locales
 COPY ./src ./src
 COPY ./static ./static

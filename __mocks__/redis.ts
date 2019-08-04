@@ -7,13 +7,15 @@ interface MockedClient {
   set: () => {}
 }
 
+export const client = {
+  get: async (key: string, cb: MockedCallback): Promise<string> => {
+    return Promise.resolve(cb(undefined, key === 'invalid-key' ? '' : key))
+  },
+  set: jest.fn(),
+}
+
 export const createClient = async (): Promise<MockedClient> => {
-  return {
-    get: async (key: string, cb: MockedCallback): Promise<string> => {
-      return Promise.resolve(cb(undefined, key === 'invalid-key' ? '' : key))
-    },
-    set: jest.fn(),
-  }
+  return client
 }
 
 export default {

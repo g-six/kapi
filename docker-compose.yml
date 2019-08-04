@@ -1,25 +1,21 @@
 version: "3.7"
 services:
   api:
-    build: .
+    build:
+      context: .
+      target: tester
     command: ['./node_modules/.bin/nodemon']
     depends_on:
       - redis
-    environment:
-      NODE_ENV: production
-      PORT: 8080
-      REDIS_HOST: redis
-      SPOTIFY_CLIENT_ID: $SPOTIFY_CLIENT_ID
-      SPOTIFY_CLIENT_SECRET: $SPOTIFY_CLIENT_SECRET
-      SPOTIFY_REDIRECT_URI: $SPOTIFY_REDIRECT_URI
-      VIRTUAL_HOST: djiron.app
-      VIRTUAL_PORT: 8080
+    env_file: './.env'
     ports:
       - '8080:8080'
     restart: unless-stopped
     volumes:
       - ./src:/app/src
       - ./static:/app/static
+      - ./locales:/app/locales
+      - ../coverages/kapi:/app/coverage/lcov-report
       - ./nodemon.json:/app/nodemon.json
       - ./.git:/app/.git:ro
   redis:

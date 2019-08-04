@@ -7,6 +7,11 @@ not meant for production use (at the moment).
 Feel free to post contributions as PR!  
 
 ---
+### Environment
+Please copy `env-sample` to `.env` before running the container.
+
+
+---
 
 ### Collaborators
 #### XSquad
