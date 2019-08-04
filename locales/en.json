@@ -11,6 +11,7 @@
   "ERROR.REPORT_TO_SLACK_TITLE": "Whoops, error alert!",
   "ERROR.UNABLE_TO_REAUTH": "Sorry but we were unable to re-authenticate your profile.",
   "ERROR.UNIDENTIFIABLE_LURKING_OBJECT": "U.L.O (Unidentifiable Lurking Object) alert!",
+  "SPOTIFY.CONNECT": "Connect your Spotify account to DJ Iron to get started",
   "SPOTIFY": {
     "ADDED": "_Added *{title} by {artist}* to the queue_",
     "CONNECTED": "Congratulations, you're all set!",

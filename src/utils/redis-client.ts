@@ -21,8 +21,6 @@ export const storeData = async (data: KeyStore): Promise<void> => {
     host: redis.host,
   })
 
-  if (!data) throw new Error('No redis data to store')
-
   Object.keys(data).forEach((key): void => {
     client.set(key, data[key])
   })

@@ -46,9 +46,9 @@ describe('redis-client', (): void => {
     test('should connect to redis and store', async (): Promise<void> => {
       const mock_value = 'with some value'
       await storeData({ some_key: mock_value })
+      const stored_key = await getData('some_key')
 
-      // expect(redis.createClient).toHaveBeenCalledTimes(1)
-      // expect(spySet).toHaveBeenCalledWith('some_key', mock_value)
+      expect(stored_key).toEqual('some_key')
     })
   }
 })

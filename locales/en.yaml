@@ -1,0 +1,6 @@
+auth:
+  authenticate: 'Authenticate'
+  login: 'Log in'
+  sign_up: 'Sign up'
+spotify:
+  connect: 'Connect DJ Iron to your Spotify account to get started!!'
