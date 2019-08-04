@@ -35,7 +35,9 @@ describe('redis-client', (): void => {
       expect(result).toEqual(key)
     })
 
-    test('should return blank string if key not found', async (): Promise<void> => {
+    test('should return blank string if key not found', async (): Promise<
+      void
+    > => {
       const expected = ''
       const result = await getData('invalid-key')
       expect(result).toEqual(expected)

@@ -16,7 +16,7 @@ COPY package* ./
 COPY jest.config.js .
 COPY tsconfig.json .
 COPY .eslintrc.yaml .
-COPY .prettierrc.js .
+COPY .prettierrc.yaml .
 RUN npm test
 
 # Building stage

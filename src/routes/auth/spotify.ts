@@ -6,7 +6,10 @@ export const spotifyCallback = async (ctx: BaseContext): Promise<void> => {
   try {
     const { data } = await createToken(ctx.query.code)
 
-    if (!data) throw new Error('No data received from Spotify API on attempt to create token')
+    if (!data)
+      throw new Error(
+        'No data received from Spotify API on attempt to create token',
+      )
 
     await storeData(data as KeyStore)
 
