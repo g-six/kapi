@@ -13,7 +13,7 @@
     "koa-router": "^7.4.0",
     "lodash": "^4.17.15",
     "massive": "^5.11.2",
-    "redis": "^2.8.0"
+    "redis": "^3.1.1"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^8.1.0",
